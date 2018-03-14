@@ -1,6 +1,8 @@
 # ktPlayer - Music-Player
 Music player on Java 8
 
+My test project on Java 8 with using JavaFx.
+
 How to run:
   - open cmd
   - come(cd) to target folder
