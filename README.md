@@ -16,3 +16,5 @@ How to use:
   - open folder with your music(left-top icon)
   - listening the music
 
+Few screenshoots:
+ 
