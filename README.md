@@ -1,5 +1,5 @@
 # ktPlayer - Music-Player
-Music player on Java 8
+Music player on Java 8.
 
 My test project on Java 8 with using JavaFx.
 
