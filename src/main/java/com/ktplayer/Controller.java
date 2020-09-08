@@ -174,10 +174,10 @@ public class Controller {
             @Override
             public void handle(MouseEvent event) {
                 if(playlistNode.isVisible() == true) {
-                    hideTransation(playlistNode);
+                    hideTransition(playlistNode);
                 }
                 else {
-                    showTransation(playlistNode);
+                    showTransition(playlistNode);
                 }
             }
         });
@@ -561,22 +561,21 @@ public class Controller {
         }
     }
 
-    private void showTransation(AnchorPane anchorPane) {
-        fadeIn.setNode(anchorPane);
-        fadeIn.setDuration(Duration.millis(1000));
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        anchorPane.setVisible(true);
-        fadeIn.play();
+    private void transitionOperation(AnchorPane anchorPane, FadeTransition fadeTransition, boolean isShowing) {
+    	fadeTransition.setNode(anchorPane);
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setFromValue(isShowing ? 0.0 : 1.0);
+        fadeTransition.setToValue(isShowing ? 1.0 : 0.0);
+        anchorPane.setVisible(isShowing);
+        fadeTransition.play();
     }
 
-    private void hideTransation(AnchorPane anchorPane) {
-        fadeOut.setNode(anchorPane);
-        fadeOut.setDuration(Duration.millis(1000));
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-        anchorPane.setVisible(false);
-        fadeOut.play();
+    private void showTransition(AnchorPane anchorPane) {
+        transitionOperation(anchorPane, fadeIn, true);
+    }
+
+    private void hideTransition(AnchorPane anchorPane) {
+        transitionOperation(anchorPane, fadeOut, false);
     }
 
     private void setImage() throws Exception {
