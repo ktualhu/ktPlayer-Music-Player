@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="820.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ktplayer.Controller">
+<AnchorPane fx:id="window" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="740.0" prefWidth="820.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.291" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ktplayer.Controller">
    <children>
       <BorderPane layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" AnchorPane.topAnchor="40.0">
          <center>
@@ -115,6 +115,9 @@
                                              </image>
                                           </ImageView>
                                           <ImageView fx:id="pauseButton" fitHeight="48.0" fitWidth="48.0" layoutX="275.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                              <image>
                                                 <Image url="@/images/pause.png" />
                                              </image>

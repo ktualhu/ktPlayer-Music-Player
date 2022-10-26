@@ -33,7 +33,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 
 public class Controller {
@@ -225,15 +227,35 @@ public class Controller {
                         songTable.setItems(songsUrls(selectedDirectory));
 
                         songTable.setOnMouseClicked((MouseEvent e) -> {
+
                             if((e.getClickCount() > 0) && (e.getClickCount() < 2)) {
                                 try {
+//
+
+
+                                //when going back to mediaview to select a song, make sure the media player is reset to that song's position
+                                //System.out.println(next_player.getMedia().getMetadata());
+
+
+
+
+
+
                                     takeCare();
                                 }
-                                catch (Exception ex) {};
+                                catch (Exception ex) {
+                                    try {
+                                        throw ex;
+                                    } catch (Exception exception) {
+                                        exception.printStackTrace();
+                                    }
+                                }
                             }
                         });
                     }
-                    catch(Exception e) {}
+                    catch(Exception e) {
+                        System.out.println(e);
+                    }
                 }
             }
         });
@@ -286,6 +308,8 @@ public class Controller {
     }
 
     public void playPauseSong(Song song) throws Exception{
+
+
         if(song != null) {
             File file = new File(song.getUrl());
             String path = file.getAbsolutePath();
@@ -298,6 +322,7 @@ public class Controller {
                 mediaPlayer = null;
             }
 
+
             Media media = new Media(new File(path).toURI().toString());
 
             mediaPlayer = new MediaPlayer(media);
@@ -307,6 +332,7 @@ public class Controller {
             mediaView = new MediaView(mediaPlayer);
             pauseIcon();
             mediaView = new MediaView(players.get(Integer.parseInt(song.getId()) - 1));
+
 
             volumeValue.setText(String.valueOf((int)volumeSlider.getValue()));
             volumeSlider.setValue(volume * 100);
@@ -322,9 +348,11 @@ public class Controller {
                         setCurrentlyPlayer(newValue);
                         updateValues();
                     }
-                    catch(IOException e) {}
-                    catch(UnsupportedTagException e) {}
-                    catch(InvalidDataException e) {}
+                    catch(IOException e) {
+                        System.out.println(e);
+                    }
+                    catch(UnsupportedTagException e) { System.out.println(e);}
+                    catch(InvalidDataException e) { System.out.println(e);}
                 }
             });
 
@@ -335,13 +363,26 @@ public class Controller {
                     mediaView.getMediaPlayer().play();
                     playIcon();
                     updateValues();
-                    for (int i = ((players.indexOf(mediaView.getMediaPlayer())) % players.size()); i < players.size(); i++) {
-                        final MediaPlayer player = players.get(i);
+                    pauseSong();
+
+                    ListIterator players_it = players.listIterator();
+
+
+                    while(players_it.hasNext()){
+                        final MediaPlayer player = (MediaPlayer) players_it.next();
+
                         mediaPlayer = player;
-                        final MediaPlayer nextPlayer = players.get((i + 1) % players.size());
+                        final MediaPlayer next_player = players_it.hasNext() ? (MediaPlayer) players_it.next() : player;
+
+//
+//
                         mediaPlayer.setOnEndOfMedia(new Runnable() {
+
+
+
                             @Override
                             public void run() {
+
                                 mediaView.getMediaPlayer().stop();
                                 mediaView.getMediaPlayer().seek(Duration.ZERO);
                                 if(isAutoplay) {
@@ -349,7 +390,7 @@ public class Controller {
                                     repeatSongs();
                                     return;
                                 }
-                                mediaPlayer = nextPlayer;
+                                mediaPlayer = next_player;
                                 mediaView.setMediaPlayer(mediaPlayer);
                                 mediaView.getMediaPlayer().seek(Duration.ZERO);
                                 updateSliderPosition(Duration.ZERO);
@@ -358,24 +399,132 @@ public class Controller {
                                 mediaPlayer.setVolume(volume);
                                 mediaPlayer.play();
                                 playIcon();
+
                             }
                         });
+
                         pauseSong();
+
                     }
+
+
+//                    final MediaPlayer current_player = (MediaPlayer) players_it.next();
+//                    mediaPlayer = current_player;
+//                    final MediaPlayer next_player = players_it.hasNext() ? players_it.next() : current_player;
+
+
+//                    for (int i = ((players.indexOf(mediaView.getMediaPlayer())) % players.size()); i < players.size(); i++) {
+//                        final MediaPlayer player = players.get(i);
+//                        mediaPlayer = player;
+//                        final MediaPlayer nextPlayer = players.get((i + 1) % players.size());
+//                        mediaPlayer.setOnEndOfMedia(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                mediaView.getMediaPlayer().stop();
+//                                mediaView.getMediaPlayer().seek(Duration.ZERO);
+//                                if(isAutoplay) {
+//                                    mediaView.getMediaPlayer().seek(Duration.ZERO);
+//                                    repeatSongs();
+//                                    return;
+//                                }
+//                                mediaPlayer = nextPlayer;
+//                                mediaView.setMediaPlayer(mediaPlayer);
+//                                mediaView.getMediaPlayer().seek(Duration.ZERO);
+//                                updateSliderPosition(Duration.ZERO);
+//                                songSlider.setValue(0);
+//                                updateValues();
+//                                mediaPlayer.setVolume(volume);
+//                                mediaPlayer.play();
+//                                playIcon();
+//                            }
+//                        });
+//                        pauseSong();
+//                    }
                 }
             });
 
             nextSongButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    seekAndUpdate(players.get(players.indexOf(mediaView.getMediaPlayer())).getTotalDuration());
+//                    seekAndUpdate(players.get(players.indexOf(mediaView.getMediaPlayer())).getTotalDuration());
+                            mediaView.getMediaPlayer().stop();
+                            updateSliderPosition(Duration.ZERO);
+                            songSlider.setValue(0);
+
+                             MediaPlayer next_player = players.get(players.indexOf(mediaView.getMediaPlayer())+1 <  players.size() ? players.indexOf(mediaView.getMediaPlayer())+1 : players.indexOf(mediaView.getMediaPlayer()));
+
+                            //when going back to mediaview to select a song, make sure the media player is reset to that song's position
+                            //System.out.println(next_player.getMedia().getMetadata());
+
+                            mediaPlayer = next_player;
+                            System.out.println(mediaPlayer.getMedia().getMetadata());
+                            mediaView.setMediaPlayer(mediaPlayer);
+                            mediaView.getMediaPlayer().seek(Duration.ZERO);
+                            updateSliderPosition(Duration.ZERO);
+                            songSlider.setValue(0);
+                            updateValues();
+                            mediaPlayer.setVolume(volume);
+                            mediaPlayer.play();
+                            playIcon();
+
+                            //add enum to state when theres a stop caused by forward or backward skipping
+
+//                            mediaView.getMediaPlayer().stop();
+//                            mediaPlayer = next_player;
+//                            mediaView.setMediaPlayer(mediaPlayer);
+//                            mediaView.getMediaPlayer().seek(Duration.ZERO);
+//                            updateSliderPosition(Duration.ZERO);
+//                            songSlider.setValue(0);
+//                            updateValues();
+//                            mediaPlayer.setVolume(volume);
+//                            mediaPlayer.play();
+//                            playIcon();
+
+
+//                    for (int i = ((players.indexOf(mediaView.getMediaPlayer())) % players.size()); i < players.size(); i++) {
+//                        final MediaPlayer player = players.get(i);
+//                        mediaPlayer = player;
+//                    }
+
+//
+//                        mediaView.getMediaPlayer().stop();
+
+
+
                 }
             });
 
             previousSongButton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
-                    seekAndUpdate(Duration.ZERO);
+//                    seekAndUpdate(Duration.ZERO);
+                    mediaView.getMediaPlayer().stop();
+                    updateSliderPosition(Duration.ZERO);
+                    songSlider.setValue(0);
+
+                    MediaPlayer prev_player;
+                    if(mediaView.getMediaPlayer().getCurrentTime().toSeconds() <=5) {
+                       prev_player = players.get(players.indexOf(mediaView.getMediaPlayer())-1 >=  0 ? players.indexOf(mediaView.getMediaPlayer())-1 : players.indexOf(mediaView.getMediaPlayer()));
+
+                    } else {
+                        prev_player = players.get(players.indexOf(mediaView.getMediaPlayer()));
+                    }
+
+
+                    //when going back to mediaview to select a song, make sure the media player is reset to that song's position
+                    //System.out.println(next_player.getMedia().getMetadata());
+
+
+                    mediaPlayer = prev_player;
+                    System.out.println(mediaPlayer.getMedia().getMetadata());
+                    mediaView.setMediaPlayer(mediaPlayer);
+                    mediaView.getMediaPlayer().seek(Duration.ZERO);
+                    updateSliderPosition(Duration.ZERO);
+                    songSlider.setValue(0);
+                    updateValues();
+                    mediaPlayer.setVolume(volume);
+                    mediaPlayer.play();
+                    playIcon();
                 }
             });
 
