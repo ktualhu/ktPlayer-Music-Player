@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="ktPlayer-Music-Player">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/src/main/java" />
+    </SOURCES>
+  </library>
+</component>

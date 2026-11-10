@@ -2,6 +2,7 @@ package com.ktplayer;
 
 import com.jfoenix.controls.JFXSlider;
 import com.mpatric.mp3agic.*;
+
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -34,6 +35,7 @@ import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
 
 
 public class Controller {
@@ -225,7 +227,7 @@ public class Controller {
                         songTable.setItems(songsUrls(selectedDirectory));
 
                         songTable.setOnMouseClicked((MouseEvent e) -> {
-                            if((e.getClickCount() > 0) && (e.getClickCount() < 2)) {
+                            if((e.getClickCount() == 1)) {
                                 try {
                                     takeCare();
                                 }
@@ -233,7 +235,9 @@ public class Controller {
                             }
                         });
                     }
-                    catch(Exception e) {}
+                    catch(Exception e) {
+                        System.out.println(e.toString());
+                    }
                 }
             }
         });
@@ -253,7 +257,7 @@ public class Controller {
 
     }
 
-    public ObservableList<Song> songsUrls(File dir)   throws Exception{
+    public ObservableList<Song> songsUrls(File dir) throws Exception{ // FILES HANDLED HERE. returns list of Song objects from the directory
         ObservableList<Song> songData = FXCollections.observableArrayList();
         File[] files = dir.listFiles();
         String name;
@@ -264,16 +268,18 @@ public class Controller {
                 /*if(name.endsWith("jpg")) {
                     path = file.getAbsolutePath();
                 }*/
-                if(name.endsWith("mp3") || name.endsWith("wav")) {
+                if(name.endsWith("mp3")) {
                     try {
                         i++;
-                        Mp3File mp3 = new Mp3File(file.getPath());
+                        Mp3File mp3 = new Mp3File(file.getPath()); // class from mp3agic
                         ID3v2 tag = mp3.getId3v2Tag();
                         Song song = new Song(String.valueOf(i), tag.getArtist(), tag.getTitle(), kbToMb(file.length()), secToMin(mp3.getLengthInSeconds()),tag.getAlbum(), file.getAbsolutePath());
-                        players.add(createPlayer(file.getAbsolutePath()));
+                        players.add(createPlayer(file.getAbsolutePath())); // controls for playing media, from javafx
                         songData.add(song);
                     }
                     catch(IOException e) {e.printStackTrace();}
+                } else if (name.endsWith("wav")) {
+
                 }
             }
         }
@@ -282,29 +288,29 @@ public class Controller {
         System.out.println(players.size());
         songsCounter.setText("");
         songsCounter.setText("Songs: " + players.size());
-        return  songData;
+        return songData;
     }
 
-    public void playPauseSong(Song song) throws Exception{
+    public void playPauseSong(Song song) throws Exception {
         if(song != null) {
             File file = new File(song.getUrl());
             String path = file.getAbsolutePath();
             path.replace("\\", "/");
 
-            if((mediaView != null) && (mediaPlayer != null)) {
+            if((mediaView != null) && (mediaPlayer != null)) { // get rid of the current media player if there is one
                 volume = mediaView.getMediaPlayer().getVolume();
                 mediaView.getMediaPlayer().stop();
                 mediaView = null;
                 mediaPlayer = null;
             }
 
-            Media media = new Media(new File(path).toURI().toString());
+            Media media = new Media(new File(path).toURI().toString()); // make Media object for the song
 
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.stop();
+            mediaPlayer = new MediaPlayer(media); // make a new mediaplayer for the Media object for the song
+            mediaPlayer.stop(); // don't play yet
             mediaPlayer.setAutoPlay(false);
 
-            mediaView = new MediaView(mediaPlayer);
+            mediaView = new MediaView(mediaPlayer); // make the GUI component
             pauseIcon();
             mediaView = new MediaView(players.get(Integer.parseInt(song.getId()) - 1));
 
@@ -475,7 +481,7 @@ public class Controller {
         source = source.substring(6,source.length());
         System.out.println(source + " +++");
         Mp3File mp3 = new Mp3File(source);
-        ID3v2 tag = mp3.getId3v2Tag();
+        ID3v2 tag = mp3.getId3v2Tag(); // MP3 info retrieved by mp3agic
         artistName.setText(tag.getArtist());
         songName.setText(tag.getTitle());
         albumName.setText(tag.getAlbum());
