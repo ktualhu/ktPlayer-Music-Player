@@ -1,7 +1,11 @@
 package com.ktplayer;
 
 import com.jfoenix.controls.JFXSlider;
-import com.mpatric.mp3agic.*;
+import org.jaudiotagger.audio.AudioFile;
+import org.jaudiotagger.audio.AudioFileIO;
+import org.jaudiotagger.tag.FieldKey;
+import org.jaudiotagger.tag.Tag;
+
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -33,7 +37,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 
 public class Controller {
@@ -225,7 +235,7 @@ public class Controller {
                         songTable.setItems(songsUrls(selectedDirectory));
 
                         songTable.setOnMouseClicked((MouseEvent e) -> {
-                            if((e.getClickCount() > 0) && (e.getClickCount() < 2)) {
+                            if((e.getClickCount() == 1)) {
                                 try {
                                     takeCare();
                                 }
@@ -233,7 +243,9 @@ public class Controller {
                             }
                         });
                     }
-                    catch(Exception e) {}
+                    catch(Exception e) {
+                        System.out.println(e.toString());
+                    }
                 }
             }
         });
@@ -253,7 +265,7 @@ public class Controller {
 
     }
 
-    public ObservableList<Song> songsUrls(File dir)   throws Exception{
+    public ObservableList<Song> songsUrls(File dir) throws Exception{ // FILES HANDLED HERE. returns list of Song objects from the directory
         ObservableList<Song> songData = FXCollections.observableArrayList();
         File[] files = dir.listFiles();
         String name;
@@ -264,16 +276,25 @@ public class Controller {
                 /*if(name.endsWith("jpg")) {
                     path = file.getAbsolutePath();
                 }*/
-                if(name.endsWith("mp3") || name.endsWith("wav")) {
+                if(isPlayable(name)) {
                     try {
+                        // jaudiotagger reads tags + length for mp3, wav, aiff, m4a, flac, ogg, etc.
+                        AudioFile audioFile = AudioFileIO.read(file);
+                        Tag tag = audioFile.getTag(); // may be null (e.g. untagged WAV)
+                        long seconds = audioFile.getAudioHeader().getTrackLength();
                         i++;
-                        Mp3File mp3 = new Mp3File(file.getPath());
-                        ID3v2 tag = mp3.getId3v2Tag();
-                        Song song = new Song(String.valueOf(i), tag.getArtist(), tag.getTitle(), kbToMb(file.length()), secToMin(mp3.getLengthInSeconds()),tag.getAlbum(), file.getAbsolutePath());
-                        players.add(createPlayer(file.getAbsolutePath()));
+                        Song song = new Song(String.valueOf(i),
+                                tagOr(tag, FieldKey.ARTIST, "Unknown"),
+                                tagOr(tag, FieldKey.TITLE, stripExtension(name)),
+                                kbToMb(file.length()), secToMin(seconds),
+                                tagOr(tag, FieldKey.ALBUM, "-"),
+                                file.getAbsolutePath());
+                        players.add(createPlayer(file.getAbsolutePath())); // controls for playing media, from javafx
                         songData.add(song);
                     }
-                    catch(IOException e) {e.printStackTrace();}
+                    catch(Exception e) {
+                        System.out.println("Skipping " + name + ": " + e);
+                    }
                 }
             }
         }
@@ -282,29 +303,29 @@ public class Controller {
         System.out.println(players.size());
         songsCounter.setText("");
         songsCounter.setText("Songs: " + players.size());
-        return  songData;
+        return songData;
     }
 
-    public void playPauseSong(Song song) throws Exception{
+    public void playPauseSong(Song song) throws Exception {
         if(song != null) {
             File file = new File(song.getUrl());
             String path = file.getAbsolutePath();
             path.replace("\\", "/");
 
-            if((mediaView != null) && (mediaPlayer != null)) {
+            if((mediaView != null) && (mediaPlayer != null)) { // get rid of the current media player if there is one
                 volume = mediaView.getMediaPlayer().getVolume();
                 mediaView.getMediaPlayer().stop();
                 mediaView = null;
                 mediaPlayer = null;
             }
 
-            Media media = new Media(new File(path).toURI().toString());
+            Media media = new Media(new File(path).toURI().toString()); // make Media object for the song
 
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.stop();
+            mediaPlayer = new MediaPlayer(media); // make a new mediaplayer for the Media object for the song
+            mediaPlayer.stop(); // don't play yet
             mediaPlayer.setAutoPlay(false);
 
-            mediaView = new MediaView(mediaPlayer);
+            mediaView = new MediaView(mediaPlayer); // make the GUI component
             pauseIcon();
             mediaView = new MediaView(players.get(Integer.parseInt(song.getId()) - 1));
 
@@ -322,9 +343,9 @@ public class Controller {
                         setCurrentlyPlayer(newValue);
                         updateValues();
                     }
-                    catch(IOException e) {}
-                    catch(UnsupportedTagException e) {}
-                    catch(InvalidDataException e) {}
+                    catch(Exception e) {
+                        System.out.println(e.toString());
+                    }
                 }
             });
 
@@ -466,19 +487,40 @@ public class Controller {
         playButton.setDisable(false);
     }
 
-    public void setCurrentlyPlayer(MediaPlayer player) throws InvalidDataException, IOException, UnsupportedTagException {
-        String source = player.getMedia().getSource();
-        source = source.replace("/","\\");
-        source = source.replaceAll("%20", " ");
-        source = source.replaceAll("%5B", "[");
-        source = source.replaceAll("%5D", "]");
-        source = source.substring(6,source.length());
-        System.out.println(source + " +++");
-        Mp3File mp3 = new Mp3File(source);
-        ID3v2 tag = mp3.getId3v2Tag();
-        artistName.setText(tag.getArtist());
-        songName.setText(tag.getTitle());
-        albumName.setText(tag.getAlbum());
+    public void setCurrentlyPlayer(MediaPlayer player) throws Exception {
+        // Media source is a file: URI - convert it back to a File (handles %20 etc. properly)
+        File file = new File(new java.net.URI(player.getMedia().getSource()));
+        Tag tag = AudioFileIO.read(file).getTag();
+        artistName.setText(tagOr(tag, FieldKey.ARTIST, "Unknown"));
+        songName.setText(tagOr(tag, FieldKey.TITLE, stripExtension(file.getName())));
+        albumName.setText(tagOr(tag, FieldKey.ALBUM, "-"));
+    }
+
+    // Formats JavaFX's MediaPlayer can actually play. jaudiotagger can read tags from more
+    // (flac, ogg, wma, opus...), but JavaFX can't decode those, so they're not listed here.
+    private static final Set<String> PLAYABLE_EXTENSIONS =
+            new HashSet<>(Arrays.asList("mp3", "wav", "aif", "aiff", "m4a", "aac", "mp4"));
+
+    static {
+        // jaudiotagger logs a lot of INFO/WARNING noise to the console - quiet it down
+        Logger.getLogger("org.jaudiotagger").setLevel(Level.SEVERE);
+    }
+
+    private static boolean isPlayable(String fileName) {
+        int dot = fileName.lastIndexOf('.');
+        return dot >= 0 && PLAYABLE_EXTENSIONS.contains(fileName.substring(dot + 1).toLowerCase());
+    }
+
+    private static String stripExtension(String fileName) {
+        int dot = fileName.lastIndexOf('.');
+        return dot > 0 ? fileName.substring(0, dot) : fileName;
+    }
+
+    // Returns the tag value, or the fallback if the file has no tag / the field is empty
+    private static String tagOr(Tag tag, FieldKey key, String fallback) {
+        if (tag == null) return fallback;
+        String value = tag.getFirst(key);
+        return (value == null || value.trim().isEmpty()) ? fallback : value;
     }
 
     public void takeCare() throws Exception {

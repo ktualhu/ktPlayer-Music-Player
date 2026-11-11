@@ -1,12 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="57c410b7-156c-40d2-a375-2cf487430c03" name="Default" comment="" />
+    <list default="true" id="57c410b7-156c-40d2-a375-2cf487430c03" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/ktPlayer_Music_Player.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jfoenix_jfoenix_8_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mpatric_mp3agic_0_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ktplayer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ktplayer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ktplayer/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ktplayer/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ktplayer/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ktplayer/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ktplayer/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ktplayer/Song.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$13$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$13$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$9$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$9$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/ktplayer/Song.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/ktplayer/Song.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ktplayer-0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/ktplayer-0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+    </list>
     <list id="91a9f25b-3a59-4789-b9d1-b12303fde8f6" name="ktPlayer - Music Player" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,8 +132,20 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ktPlayer" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ohess2&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ohess2/ktPlayer-Music-Player&quot;,
+    &quot;accountId&quot;: &quot;574ee31e-8491-4d88-8b13-ed6323622852&quot;
+  }
+}</component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -118,13 +167,24 @@
       </list>
     </option>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1612" />
     <option name="height" value="876" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="3KbtW8EL0jPHqTOxo0PcXYEQlPa" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -157,19 +217,37 @@
       </pane>
     </panes>
   </component>
-  <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Application.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JavaFXTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/otto-hess/.m2/repository/net/jthink/jaudiotagger/3.0.1/jaudiotagger-3.0.1.jar&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.3678161&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+  }
+}</component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\projects\ktplayer\src\main\resources\images" />
-      <recent name="C:\projects\ktplayer\src\main\resources" />
-      <recent name="C:\projects\ktplayer\src\main\java\com\ktplayer" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\projects\ktplayer\src\main\resources\images" />
       <recent name="C:\projects\ktplayer\src\main\resources" />
@@ -177,18 +255,12 @@
       <recent name="C:\projects\ktplayer\src\main\java\com\ktplayer\View" />
       <recent name="C:\projects\ktplayer" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/ktplayer" />
+      <recent name="C:\projects\ktplayer\src\main\resources\images" />
+      <recent name="C:\projects\ktplayer\src\main\resources" />
+      <recent name="C:\projects\ktplayer\src\main\java\com\ktplayer" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -198,131 +270,95 @@
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.ktplayer.Model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.ktplayer.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ktplayer" />
-      <envs />
-    </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.ktplayer.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.ktplayer.Test" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ktplayer" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-      <item index="1" class="java.lang.String" itemvalue="Application.Test" />
+    <configuration name="Application" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="javafx.application.Application" />
+      <module name="ktplayer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="javafx.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="liberica-1.8" />
+      <option name="MAIN_CLASS_NAME" value="com.ktplayer.Main" />
+      <module name="ktplayer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ktplayer.Model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ktplayer.Test" />
+      <module name="ktplayer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ktplayer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Application" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Test" />
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10968.63" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10968.63" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -369,6 +405,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
@@ -377,33 +416,25 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.IllegalStateException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ktplayer/Main.java">

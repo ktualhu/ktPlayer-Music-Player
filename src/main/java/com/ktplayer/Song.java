@@ -3,7 +3,16 @@ package com.ktplayer;
 import javafx.beans.property.*;
 import javafx.scene.image.Image;
 
+// Class representing a song, with all of its associated data
+// No retrieval of info from files/metadata here - only instance variables and getter methods
 public class Song {
+    // StringProperty is used here rather than a string
+    // Wraps the string, making it not directly editable.
+    // Must be accessed through .get() and edited through .set()
+
+    /* the song's ID is assigned in songsUrls() method in Controller.java
+    It's the index number of the file in the list of files in the chosen folder
+     */
     private StringProperty id;
     private StringProperty artistName;
     private StringProperty songName;
